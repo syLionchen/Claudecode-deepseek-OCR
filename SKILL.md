@@ -1,6 +1,33 @@
 ---
-description: OCR 文字提取（Tesseract deu+eng+chi_sim）。当用户要求 OCR、识别扫描件、提取图片或 PDF 中的文字时使用。
+description: OCR text extraction from images and PDFs via Tesseract (deu/eng/chi_sim). Use when the user asks to OCR, recognize scanned documents, or extract text from images or PDFs. 通过 Tesseract 从图片/PDF 提取文字（德语/英语/中文），用于 OCR、识别扫描件。
 allowed-tools: Bash(python *) Bash(python3 *)
+---
+
+Extract text from images and scanned PDFs. Requires a local Tesseract installation with deu / eng / chi_sim language packs (see README).
+
+## Single image
+
+```
+python "${CLAUDE_SKILL_DIR}/scripts/ocr.py" <image-path> [lang]
+```
+
+Default language `deu+eng+chi_sim`; override with e.g. `eng`, `deu`, `chi_sim`. Outputs plain text.
+
+## PDF (recommended, auto-detects image pages)
+
+```
+python "${CLAUDE_SKILL_DIR}/scripts/pdf_ocr.py" <pdf-path> [-o output.md] [--lang eng] [--force]
+```
+
+Page-by-page detection: pages with < 50 characters are treated as image-based and OCR'd; text pages are extracted directly. Each page is tagged `[Text]` or `[OCR]`.
+
+## Notes
+
+- Quote paths that contain spaces.
+- Use `pdf_ocr.py` for scanned PDFs, `ocr.py` for single screenshots/photos.
+- Plain-text PDFs need no OCR — read them directly.
+- Output may mix DE / EN / CN; report it verbatim, do not guess or "fix" the recognized text.
+
 ---
 
 从图片或扫描 PDF 提取文字。需要本机已安装 Tesseract 引擎及 deu / eng / chi_sim 语言包（见 README）。
