@@ -1,5 +1,7 @@
 # Claude Code Skill: OCR
 
+Enables Claude Code to read and reason over text in PDFs and images — even when running on DeepSeek.
+
 A [Claude Code skill](https://code.claude.com/docs/en/skills) that extracts text from images and scanned PDFs via Tesseract, with built-in support for German / English / Simplified Chinese (deu + eng + chi_sim).
 
 > 中文说明见文末 · Chinese version at the bottom.
@@ -77,6 +79,8 @@ Common codes: `fra` French, `spa` Spanish, `ita` Italian, `jpn` Japanese, `kor` 
 ---
 
 # Claude Code Skill: OCR（中文）
+
+让Claude Code 在搭载deepseek的情况下，仍然可以识别、思考pdf文件及图片上的文字内容。
 
 一个 Claude Code [skill](https://code.claude.com/docs/en/skills)，用 Tesseract 从图片和扫描 PDF 提取文字，支持德语 / 英语 / 中文（deu + eng + chi_sim）。
 
